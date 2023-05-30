@@ -24,8 +24,26 @@ const images = [
 
 const imagesImg = [];
 
-images.forEach((element.image) => {
+console.log(imagesImg);
+
+images.forEach((element) => {
         imagesImg.push(element.image)
+});
+
+const title = [];
+
+console.log(title);
+
+images.forEach((element) => {
+        title.push(element.title)
+});
+
+const text = [];
+
+console.log(text);
+
+images.forEach((element) => {
+        text.push(element.text)
 });
 
 const carouselElements = document.querySelector("div.img-container");
@@ -33,7 +51,7 @@ const carouselElements = document.querySelector("div.img-container");
 for ( let i = 0 ; i < images.length ; i++){
 
     carouselElements.innerHTML += 
-    `<img src="./img/${images[i][image]}" alt="">
+    `<img src="./img/${imagesImg[i]}" alt="">
     <div class="text">
         <h1>Title</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, maxime voluptatem! Voluptas quidem facilis accusamus nulla, libero totam. Aliquam explicabo veniam laboriosam quisquam iusto. Sint magni obcaecati fugiat id voluptate!</p>
