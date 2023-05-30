@@ -22,6 +22,7 @@ const images = [
     }
 ];
 
+/*
 const imagesImg = [];
 
 const title = [];
@@ -39,16 +40,23 @@ console.log(imagesImg);
 console.log(title);
 
 console.log(text);
-
+*/
 const carouselElements = document.querySelector("div.img-container");
 
-for ( let i = 0 ; i < images.length ; i++){
+images.forEach((images) => {
 
     carouselElements.innerHTML += 
-    `<img src="./${imagesImg[i]}" alt="">
-    <div class="text">
-        <h1>Title</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, maxime voluptatem! Voluptas quidem facilis accusamus nulla, libero totam. Aliquam explicabo veniam laboriosam quisquam iusto. Sint magni obcaecati fugiat id voluptate!</p>
+    `<div class="wrapper">
+        <img src="./${images.image}" alt="">
+        <div class="text-wrapper">
+            <h1 class="title">${images.title}</h1>
+            <p class="text">${images.text}</p>
+        </div>
     </div>`;
 
-}
+});
+
+const leftButton = document.querySelector("div.button-left");
+const rightButton = document.querySelector("div.button-right");
+
+let visibleStuff = document.getElementsByClassName("wrapper").classList.add("visible");
