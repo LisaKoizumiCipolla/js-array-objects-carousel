@@ -1,3 +1,4 @@
+
 const images = [
     {
         image: 'img/01.webp',
@@ -22,25 +23,6 @@ const images = [
     }
 ];
 
-/*
-const imagesImg = [];
-
-const title = [];
-
-const text = [];
-
-images.forEach((element) => {
-        imagesImg.push(element.image)
-        title.push(element.title)
-        text.push(element.text)
-});
-
-console.log(imagesImg);
-
-console.log(title);
-
-console.log(text);
-*/
 const carouselElements = document.querySelector("div.img-container");
 
 images.forEach((images) => {
@@ -56,7 +38,37 @@ images.forEach((images) => {
 
 });
 
+//let visibleStuff = document.getElementsByClassName("wrapper").classList.add("visible");
+
+let visibleImgIndex = 1;
+
+document.querySelectorAll("div.wrapper")[visibleImgIndex].classList.add("visible");
+
 const leftButton = document.querySelector("div.button-left");
 const rightButton = document.querySelector("div.button-right");
 
-let visibleStuff = document.getElementsByClassName("wrapper").classList.add("visible");
+leftButton.addEventListener("click", function(){
+
+    if(visibleImgIndex == 0){
+        visibleImgIndex = images.length -1;
+    } else {
+        visibleImgIndex = visibleImgIndex - 1;
+    }
+
+    document.querySelector("div.wrapper.visible").classList.remove("visible");
+    document.querySelectorAll("div.wrapper")[visibleImgIndex].classList.add("visible");
+
+})
+
+rightButton.addEventListener("click", function(){
+
+    if(visibleImgIndex == images.length - 1){
+        visibleImgIndex = 0;
+    } else {
+        visibleImgIndex = visibleImgIndex + 1;
+    }
+
+    document.querySelector("div.wrapper.visible").classList.remove("visible");
+    document.querySelectorAll("div.wrapper")[visibleImgIndex].classList.add("visible");
+
+})
